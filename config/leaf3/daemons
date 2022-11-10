@@ -10,9 +10,9 @@ nhrpd=no
 eigrpd=no
 babeld=no
 sharpd=no
-staticd=no
+staticd=yes
 pbrd=no
-bfdd=no
+bfdd=yes
 fabricd=no
 
 vtysh_enable=yes
