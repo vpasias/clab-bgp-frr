@@ -1,4 +1,4 @@
-name: bgp_frr
+name: lf
 
 topology:
   defaults:
