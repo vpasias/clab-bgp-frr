@@ -6,7 +6,7 @@ topology:
     # Choose one of the following two images for the hosts
     # depending on which tools you need
     #image: wbitt/network-multitool:alpine-minimal
-    image: wbitt/network-multitool:alpine-extra
+    image: praqma/network-multitool:alpine-extra
     # image: nicolaka/netshoot:latest
   nodes:
     spine1:
