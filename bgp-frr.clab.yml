@@ -44,7 +44,7 @@ topology:
     host11:
       exec:
         - ip addr add 192.168.11.2/24 dev eth1
-        - ip route replace 0/0 via 192.168.11.1
+        - ip route replace 0/0 via 192.168.42.1
     host12:
       exec:
         - ip addr add 192.168.12.2/24 dev eth1
