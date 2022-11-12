@@ -39,6 +39,8 @@ topology:
       binds:
         - config/leaf4/daemons:/etc/frr/daemons
         - config/leaf4/frr.conf:/etc/frr/frr.conf
+      exec:
+        - iptables -t nat -A POSTROUTING -j MASQUERADE        
     host11:
       exec:
         - ip addr add 192.168.11.2/24 dev eth1
@@ -67,13 +69,13 @@ topology:
       exec:
         - ip addr add 192.168.41.2/24 dev eth1
         - ip route replace 0/0 via 192.168.41.1
-    gtwy:
-      image: frrouting/frr:v8.4.0
-      binds:
-        - config/gtwy/daemons:/etc/frr/daemons
-        - config/gtwy/frr.conf:/etc/frr/frr.conf
-      exec:
-        - iptables -t nat -A POSTROUTING -j MASQUERADE
+ #   gtwy:
+ #     image: frrouting/frr:v8.4.0
+ #     binds:
+ #       - config/gtwy/daemons:/etc/frr/daemons
+ #       - config/gtwy/frr.conf:/etc/frr/frr.conf
+ #     exec:
+ #       - iptables -t nat -A POSTROUTING -j MASQUERADE
     brdg:
       kind: bridge
   links:
@@ -92,5 +94,6 @@ topology:
     - endpoints: ["host31:eth1", "leaf3:eth3"]
     - endpoints: ["host32:eth1", "leaf3:eth4"]
     - endpoints: ["host41:eth1", "leaf4:eth3"]
-    - endpoints: ["gtwy:eth1", "leaf4:eth4"]
-    - endpoints: ["gtwy:eth2", "brdg:eth1"]
+    - endpoints: ["brdg:eth1", "leaf4:eth4"]
+ #   - endpoints: ["gtwy:eth1", "leaf4:eth4"]
+ #   - endpoints: ["gtwy:eth2", "brdg:eth1"]
