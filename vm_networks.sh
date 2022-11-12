@@ -3,7 +3,7 @@
 
 cat > /home/iason/vms/wan.xml <<EOF
 <network>
-  <name>wan/name>
+  <name>wan</name>
   <forward mode='nat'/>
   <bridge name='wan' stp='off' macTableManager="kernel"/>
   <mtu size="9216"/>
